@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "Library.Basket.API": {
+    "Sistema.Agrupador.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
