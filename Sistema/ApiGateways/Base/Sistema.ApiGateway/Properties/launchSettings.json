@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "Library.ApiGateway": {
+    "Sistema.ApiGateway": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
