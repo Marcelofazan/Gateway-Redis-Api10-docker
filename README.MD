@@ -81,14 +81,14 @@ taskkill /F /PID <NUMERO_DO_PID>
 - Importar Coleção de testes que contém na pasta Postman **Redis Gateway Cache Example.postman_collection.json**
 
 #### 🧪 Executar Redis
-Abra o terminal: Abra o Prompt de Comando (CMD) ou PowerShell no Windows.
+- Abra o terminal: Abra o Prompt de Comando (CMD) ou PowerShell no Windows.
 
-Inicie o cliente: Digite o comando abaixo e pressione Enter:
+- Inicie o cliente: Digite o comando abaixo e pressione Enter:
 ```bash
 memurai-cli
 ```
 
-Teste a conexão: Digite **PING** e aperte Enter. O servidor responderá **PONG**
+- Teste a conexão: Digite **PING** e aperte Enter. O servidor responderá **PONG**
 
 Para buscar chaves no Redis
 ```bash
