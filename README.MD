@@ -81,18 +81,19 @@ Inicie o cliente: Digite o comando abaixo e pressione Enter:
 memurai-cli
 ```
 
-- Teste a conexão: Digite **PING** e aperte Enter. 
-O servidor responderá PONG
+Teste a conexão: Digite **PING** e aperte Enter. O servidor responderá **PONG**
 
+Para buscar chaves no Redis
 ```bash
 KEYS *Pessoa_Agrupador*
 ```
 
+Retornar todos os campos e valores de um hash armazenado em uma chave específica.
 ```bash
 HGETALL "Sistema_development_Pessoa_Agrupador_3673a9fd-191a-479c-a41f-3dc5611aa77d"
 ```
 
-// Exibir somente Json 
+Exibir somente Json de um hash armazenado em uma chave específica.
 ```bash
 HGET "Sistema_development_Pessoa_Agrupador_3673a9fd-191a-479c-a41f-3dc5611aa77d" data
 ```
