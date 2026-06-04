@@ -60,9 +60,17 @@ docker compose down
 
 - Caso haja falha de compilação por Portas ocupadas, rastrear portas no PowerShell e fecha-las.
 ```bash
-netstat -ano | findstr :3000 ou netstat -ano | findstr :3001
-netstat -ano | findstr :4000 ou netstat -ano | findstr :4001
-netstat -ano | findstr :5100 ou netstat -ano | findstr :5101
+netstat -ano | findstr :3000 
+ou 
+netstat -ano | findstr :3001
+ou
+netstat -ano | findstr :4000 
+ou 
+netstat -ano | findstr :4001
+ou
+netstat -ano | findstr :5100 
+ou 
+netstat -ano | findstr :5101
 ```
 - O comando vai retornar uma linha. O último número dessa linha é o PID. Use esse número para fechar o processo:
 ```bash
