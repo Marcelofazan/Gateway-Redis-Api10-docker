@@ -73,6 +73,10 @@ netstat -ano | findstr :4000
 ou 
 netstat -ano | findstr :4001
 ou
+netstat -ano | findstr :6000 
+ou 
+netstat -ano | findstr :6001
+ou 
 netstat -ano | findstr :5100 
 ou 
 netstat -ano | findstr :5101
