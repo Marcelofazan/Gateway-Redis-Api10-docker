@@ -1,4 +1,4 @@
-## 🌐 Apigateway10-Redis-docker
+## 🌐 Apigateway10-docker
 Exemplo de utilização de criação de ApiGateway com utilização de cache Redis.
 
 | Tecnologia | Descrição |
