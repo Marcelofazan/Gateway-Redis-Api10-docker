@@ -70,24 +70,17 @@ docker compose down --volumes --remove-orphans --timeout 0
 - Importar Coleção de testes que contém no diretório Postman 
 **Redis Gateway Cache Example.postman_collection.json**
 
-#### ⚙️ Configuração de conflito de portas 
+#### ⚙️ - Configuração - Conflito de portas 
 
 - Caso haja falha de compilação por Portas ocupadas, rastrear portas no PowerShell e fecha-las.
 ```bash
 netstat -ano | findstr :3000 
-ou 
 netstat -ano | findstr :3001
-ou
 netstat -ano | findstr :4000 
-ou 
 netstat -ano | findstr :4001
-ou
 netstat -ano | findstr :6000 
-ou 
 netstat -ano | findstr :6001
-ou 
 netstat -ano | findstr :5100 
-ou 
 netstat -ano | findstr :5101
 ```
 - O comando vai retornar uma linha. O último número dessa linha é o PID. Use esse número para fechar o processo:
