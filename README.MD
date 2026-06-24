@@ -11,12 +11,14 @@ Exemplo de Gateway Api com Redis como cache em C# ASP.NET Core 10.
 | **Redis** | Banco de dados em memória (RAM) de altíssima velocidade. |
 
 #### 💬 Requisitos do Projeto
-- Limpe os certificados existentes e Gere e confie em um novo certificado local
+- Necessário Docker instalado.
+- Necessário Certificados em pasta raiz .
+
+Limpe os certificados existentes e Gere e confie em um novo certificado local
 ```bash
 dotnet dev-certs https --clean
 dotnet dev-certs https --trust
 ```
-
 - Criar pasta e Exporte o certificado como um arquivo físico, a configuração do seu contêiner exigi um caminho direto
 ```bash
 mkdir %USERPROFILE%\.dotnet\corefx\cryptography\x509stores\mycerts
