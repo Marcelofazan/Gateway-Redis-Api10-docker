@@ -12,32 +12,24 @@ Exemplo de ApiGateway com Redis como cache em C# ASP.NET Core 10.
 
 #### 💬 Requisitos do Projeto
 - Necessário Docker instalado.
-- Necessário Certificados em pasta raiz .
+- Necessário Certificados em pasta raiz . 
 
-Limpe os certificados existentes e Gere e confie em um novo certificado local
-```bash
-dotnet dev-certs https --clean
-dotnet dev-certs https --trust
-```
-- Criar pasta e Exporte o certificado como um arquivo físico, a configuração do seu contêiner exigi um caminho direto
-```bash
-mkdir %USERPROFILE%\.dotnet\corefx\cryptography\x509stores\mycerts
-dotnet dev-certs https -ep %USERPROFILE%\.dotnet\corefx\cryptography\x509stores\mycerts\webApi.pfx -p pa55w0rd
-```
-
-- Conferir se o certificado está na pasta 
-```bash
-C:\Users\[SEU_USUARIO]\.dotnet\corefx\cryptography\x509stores\mycerts
-```
-
-#### 🔄 Executar a aplicação
+#### 🔄 Executar a aplicação Docker
 
 VSCode Terminal [1] - Abrir Container
 ```bash
 cd Sistema
 docker-compose up --build  
 ```
+VSCode Terminal [6] - Fechar Container
+```bash
+cd Sistema
+docker compose down --volumes --remove-orphans --timeout 0
+ou
+docker compose down 
+```
 
+#### 🔄 Executar a aplicação Desenvolvimento Local
 VSCode Terminal [2]
 ```bash
 cd Sistema/Services/Pessoa/Sistema.Pessoa.API
@@ -62,41 +54,9 @@ cd Sistema/ApiGateways/Base/Sistema.ApiGateway
 dotnet run
 ```
 
-VSCode Terminal [6] - Fechar Container
-```bash
-cd Sistema
-docker compose down --volumes --remove-orphans --timeout 0
-```
-
 #### 🧪 Executar Endpoints 
 - Importar Coleção de testes que contém no diretório Postman 
 **Redis Gateway Cache Example.postman_collection.json**
-
-#### ⚙️ - Configuração - Conflito de portas 
-
-- Caso haja falha de compilação por Portas ocupadas, rastrear portas no PowerShell e fecha-las.
-```bash
-netstat -ano | findstr :3000 
-netstat -ano | findstr :3001
-netstat -ano | findstr :4000 
-netstat -ano | findstr :4001
-netstat -ano | findstr :6000 
-netstat -ano | findstr :6001
-netstat -ano | findstr :5100 
-netstat -ano | findstr :5101
-```
-- O comando vai retornar uma linha. O último número dessa linha é o PID. Use esse número para fechar o processo:
-```bash
-taskkill /F /PID <NUMERO_DO_PID>
-```
-- Exemplo de como as portas devem estar para funcionar 
-```bash
-PS C:\Windows\system32> netstat -ano | findstr :4001
-  TCP    0.0.0.0:4001           0.0.0.0:0              LISTENING       9828
-  TCP    127.0.0.1:4001         0.0.0.0:0              LISTENING       18884
-  TCP    [::]:4001              [::]:0                 LISTENING       9828
-  TCP    [::1]:4001             [::]:0                 LISTENING       18884
-```
 
 #### 🛠️ Redis
 - Abra o terminal: Abra o Prompt de Comando (CMD) ou PowerShell no Windows.
@@ -122,3 +82,48 @@ Exibir somente Json de um hash armazenado em uma chave específica.
 ```bash
 HGET "Sistema_development_Pessoa_Agrupador_3673a9fd-191a-479c-a41f-3dc5611aa77d" data
 ```
+
+#### ⚙️ Configuração Certificados em Desenvolvimento Local 
+Limpe os certificados existentes e Gere e confie em um novo certificado local
+```bash
+dotnet dev-certs https --clean
+dotnet dev-certs https --trust
+```
+- Criar pasta e Exporte o certificado como um arquivo físico, a configuração do seu contêiner exigi um caminho direto
+```bash
+mkdir %USERPROFILE%\.dotnet\corefx\cryptography\x509stores\mycerts
+dotnet dev-certs https -ep %USERPROFILE%\.dotnet\corefx\cryptography\x509stores\mycerts\webApi.pfx -p pa55w0rd
+```
+
+- Conferir se o certificado está na pasta 
+```bash
+C:\Users\[SEU_USUARIO]\.dotnet\corefx\cryptography\x509stores\mycerts
+```
+
+#### ⚙️ - Configuração Conflito de portas Desenvolvimento Local 
+
+- Caso haja falha de compilação por Portas ocupadas, rastrear portas no PowerShell e fecha-las.
+```bash
+netstat -ano | findstr :3000 
+netstat -ano | findstr :3001
+netstat -ano | findstr :4000 
+netstat -ano | findstr :4001
+netstat -ano | findstr :6000 
+netstat -ano | findstr :6001
+netstat -ano | findstr :5100 
+netstat -ano | findstr :5101
+```
+- O comando vai retornar uma linha. O último número dessa linha é o PID. Use esse número para fechar o processo:
+```bash
+taskkill /F /PID <NUMERO_DO_PID>
+```
+- Exemplo de como as portas devem estar para funcionar 
+```bash
+PS C:\Windows\system32> netstat -ano | findstr :4001
+  TCP    0.0.0.0:4001           0.0.0.0:0              LISTENING       9828
+  TCP    127.0.0.1:4001         0.0.0.0:0              LISTENING       18884
+  TCP    [::]:4001              [::]:0                 LISTENING       9828
+  TCP    [::1]:4001             [::]:0                 LISTENING       18884
+```
+
+
