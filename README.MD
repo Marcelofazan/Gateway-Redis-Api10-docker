@@ -83,7 +83,7 @@ Exibir somente Json de um hash armazenado em uma chave específica.
 HGET "Sistema_development_Pessoa_Agrupador_3673a9fd-191a-479c-a41f-3dc5611aa77d" data
 ```
 
-#### ⚙️ Configuração Certificados em Desenvolvimento Local 
+#### ⚙️ Configuração Gerar Certificado 
 Limpe os certificados existentes e Gere e confie em um novo certificado local
 ```bash
 dotnet dev-certs https --clean
